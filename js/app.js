@@ -38,7 +38,20 @@ const result = document.querySelector(".message");
 
 answerBtn.addEventListener("click", function() {
 
-  result.innerText += message.value;
+
+  const list = document.createElement("li");
+  const btn = document.createElement("button");
+  // list.classList.add("message");
+  list.textContent = message.value;
+  result.appendChild(list)
+  result.appendChild(btn);
+  btn.textContent = 'x';
+  btn.addEventListener("click", function() {
+    result.removeChild(list);
+    result.removeChild(btn);
+  })
+
+  // result.innerText += message.value;
   console.log(message.value);
   message.value = "";
 });
@@ -69,6 +82,20 @@ const wynik = document.getElementById("wynik");
 losuj.addEventListener("click", () => {
   let liczba = Math.floor(Math.random() * 100) + 1;
   wynik.textContent = `Wylosowano: ${liczba}`;
+});
+
+const lotto = document.getElementById("lotto");
+const lottoResult = document.getElementById("lottoWynik");
+
+lotto.addEventListener("click", () => {
+  let lottoNumbers = [];
+  while (lottoNumbers.length < 6) {
+    let randomNumber = Math.floor(Math.random() * 45) + 1;
+    if (!lottoNumbers.includes(randomNumber)) {
+      lottoNumbers.push(randomNumber);
+    }
+  }
+  lottoResult.textContent = `Wylosowano: ${lottoNumbers.join(", ")}`;
 });
 
 
