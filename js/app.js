@@ -57,6 +57,22 @@ randomAnswer.addEventListener("click", function() {
 
   console.log(randomIndex, randomItem);
   chat.textContent = randomItem; // or innerHTML, depending on your needs
+
+
+  const rand = Math.floor(Math.random() * 5);
+  console.log(rand)
 });
+
+const losuj = document.getElementById("losuj");
+const wynik = document.getElementById("wynik");
+
+losuj.addEventListener("click", () => {
+  let liczba = Math.floor(Math.random() * 100) + 1;
+  wynik.textContent = `Wylosowano: ${liczba}`;
+});
+
+
+
+
 
 
