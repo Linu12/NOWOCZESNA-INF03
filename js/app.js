@@ -1,6 +1,7 @@
 const input = document.getElementById("itemInput");
 const button = document.getElementById("addBtn");
 const list = document.getElementById("shoppingList");
+const listArray = document.querySelectorAll(".list li");
 
 button.addEventListener("click", function() {
 
@@ -29,6 +30,13 @@ else{
 
   }
 
+});
+
+
+listArray.forEach(function(item) {
+  item.addEventListener("click", function() {
+    item.style.textDecoration = 'line-through';
+  })
 });
 
 
